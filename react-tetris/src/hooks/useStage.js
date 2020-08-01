@@ -3,6 +3,7 @@ import { createStage } from "../gameHelpers";
 
 export const useStage = (player, resetPlayer) => {
   const [stage, setStage] = useState(createStage());
+
   useEffect(() => {
     const updateStage = prevStage => {
       // first flush the stage
@@ -26,6 +27,6 @@ export const useStage = (player, resetPlayer) => {
     };
 
     setStage(prev => updateStage(prev));
-  }, [player]);
+  }, [player, resetPlayer]);
   return [stage, setStage];
 };
